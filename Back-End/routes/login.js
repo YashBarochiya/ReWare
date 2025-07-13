@@ -18,8 +18,8 @@ router.post("/", async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-
-    if (password!==user.password) {
+    const match = bcrypt.comper(password,user.password)
+    if (!match) {
       return res.status(401).json({ message: "Incorrect password" });
     }
 

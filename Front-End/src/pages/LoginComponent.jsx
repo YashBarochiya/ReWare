@@ -13,9 +13,9 @@ function LoginComponent() {
   const post_data = (e) => {
     e.preventDefault();
     
-    axiosInstance({ method: "post", url: API_BASE_URL + Login, payload: data });
+    const responce = axiosInstance({ method: "post", url: API_BASE_URL + Login, payload: data });
     
-    console.log("success")
+    console.log(responce)
   };
 
   return (

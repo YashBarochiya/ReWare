@@ -6,7 +6,7 @@ const allroutes = require("./routes");
 
 const app = express();
 connectDB();
-
+app.use("/uploads", express.static("uploads"));
 app.use(cors());
 app.use(express.json());          // ✅ Parse JSON before routes
 app.use("/", allroutes);          // ✅ Then mount all routes

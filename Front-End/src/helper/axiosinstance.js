@@ -1,6 +1,12 @@
 import axios from "axios"
 
 export const axiosInstance=({method = "get", url, payload = {}, config = {}})=>{
+  if (payload instanceof FormData) {
+    config.headers = {
+      ...(config.headers || {}),
+      "Content-Type": "multipart/form-data"
+    };
+  }
   switch (method.toLowerCase()) {
     case "get":
       return axios.get(url, config);
